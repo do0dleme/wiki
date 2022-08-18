@@ -116,4 +116,12 @@ minetest.register_chatcommand("wiki", {
         return true
 	end
 })
+
+-- show news formspec on player join
+minetest.register_on_joinplayer(function (player)
+	if wiki_fs then
+		minetest.show_formspec(pname, "wiki", wiki_fs)
+	end
+end)
+
 print("[OK] : Wiki Mod")
